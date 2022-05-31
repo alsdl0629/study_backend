@@ -15,8 +15,7 @@ public class UserService {
                 .password(dto.getPassword())
                 .build());
 
-        userRepository.save(new User(
-                dto.getId(), dto.getPassword() 
+        userRepository.save(new User(dto.getId(), dto.getPassword()
         ));
     }
 
