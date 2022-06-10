@@ -2,9 +2,7 @@ package com.example.project1.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Builder
@@ -14,7 +12,11 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Table(name = "project")
 public class ProjectEntity {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+
     String product;
     String order;
     String orderList;
