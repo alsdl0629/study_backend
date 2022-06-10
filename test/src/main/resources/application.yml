@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: mysql
+  datasource:
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:rkdalsl060629}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_URL:localhost}:3306/${DB_NAME:testdb}?characterEncoding=UTF-8&serverTimezone=UTC
+server:
+  port: 9090
