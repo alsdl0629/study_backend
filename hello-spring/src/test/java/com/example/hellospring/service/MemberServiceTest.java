@@ -41,7 +41,7 @@ class MemberServiceTest {
             memberService.join(member2);
             fail();
         } catch (IllegalStateException e) {
-
+            
         }
         //then
     }
