@@ -3,26 +3,21 @@ package com.example.project1.service;
 import com.example.project1.dto.ProjectDto;
 import com.example.project1.entity.ProjectEntity;
 import com.example.project1.handler.ProjectDataHandler;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProjectService {
 
     ProjectDataHandler projectDataHandler;
 
-    @Autowired
-    public ProductServiceImpl(ProjectDataHandler projectDataHandler) {
-        this.projectDataHandler = projectDataHandler;
-    }
-
     @Override
-    public ProjectDto saveProject(Long id, String product, String order, String orederList) {
-        ProjectEntity projectEntity = projectDataHandler.saveProjectEntity(id, product, order, orederList);
+    public ProjectDto saveProject(String product, String order, String orederList) {
+        ProjectEntity projectEntity = projectDataHandler.saveProjectEntity(product, order, orederList);
 
-        ProjectDto projectDto = new ProjectDto(
-                product.
-                projectEntity.getProduct(),
+        ProjectDto projectDto = new ProjectDto(projectEntity.getProduct(),
                 projectEntity.getOrder(), projectEntity.getOrderList());
 
         return projectDto;

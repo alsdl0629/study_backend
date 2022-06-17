@@ -12,10 +12,6 @@ import javax.transaction.Transactional;
 @Transactional
 public class ProjectDataHandlerImpl implements ProjectDataHandler{
     ProjectDao projectDao;
-    @Autowired
-    public ProjectDataHandlerImpl(ProjectDao projectDao) {
-        this.projectDao = projectDao;
-    }
 
     @Override
     public ProjectEntity saveProjectEntity(String product, String order, String orderList) {
