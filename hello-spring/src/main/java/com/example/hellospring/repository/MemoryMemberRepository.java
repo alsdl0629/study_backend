@@ -1,6 +1,7 @@
 package com.example.hellospring.repository;
 
 import com.example.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
@@ -30,7 +31,7 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public List<Member> findAll() {
-        return new ArrayList<>(store.values());
+        return new ArrayList<>(store.values());//스토어에있는 멤버들을 반환
     }
 
     public void clearStore() {
