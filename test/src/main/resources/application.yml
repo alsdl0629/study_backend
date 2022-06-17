@@ -3,6 +3,7 @@ spring:
     hibernate:
       ddl-auto: create
     database: mysql
+    open-in-view: false
   datasource:
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:rkdalsl060629}
