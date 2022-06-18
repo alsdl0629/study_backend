@@ -1,6 +1,6 @@
 package com.example.board1.dto;
 
-import com.example.board1.entity.BoardEntity;
+import com.example.board1.domain.Board;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,8 +16,8 @@ public class BoardDto {
 
     private String password;
 
-    public BoardEntity toEntity() {
-        return BoardEntity.builder()
+    public Board toEntity() {
+        return Board.builder()
                 .id(id)
                 .password(password)
                 .build();

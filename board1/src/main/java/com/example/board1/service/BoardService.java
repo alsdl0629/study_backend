@@ -1,13 +1,13 @@
 package com.example.board1.service;
 
 
+import com.example.board1.domain.Board;
 import com.example.board1.dto.BoardDto;
-import com.example.board1.entity.BoardEntity;
 import com.example.board1.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,16 +15,12 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    public void createBoard(Long id, String password) {
-
-        boardRepository.save(BoardEntity.builder()
-                .id(id)
-                .password(password)
-                .build());
+    public void createBoard(BoardDto boardDto) {
+        boardRepository.save(boardDto);
     }
 
-    public BoardEntity getBoard(Long id) {
-        BoardEntity boardEntity = boardRepository.findById()
+    public Optional<Board> getBoard(Long id) {
+       Board board = boardRepository.findById(id);
     }
 
 }

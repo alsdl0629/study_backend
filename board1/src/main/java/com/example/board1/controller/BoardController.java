@@ -16,6 +16,6 @@ public class BoardController {
 
     @PostMapping("/member")
     public String createBoard(@RequestBody BoardDto boardDto) {
-        boardService.
+        boardService.createBoard(boardDto);
     }
 }

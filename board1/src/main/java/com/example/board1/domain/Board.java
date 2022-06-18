@@ -1,4 +1,4 @@
-package com.example.board1.entity;
+package com.example.board1.domain;
 
 import com.example.board1.dto.BoardDto;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 @Entity
@@ -16,8 +15,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Table(name = "board")
-public class BoardEntity {
+public class Board {
     @Id
     private Long id;
     private String password;
