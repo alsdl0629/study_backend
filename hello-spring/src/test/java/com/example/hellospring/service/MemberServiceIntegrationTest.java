@@ -8,16 +8,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@SpringBootTest
+@SpringBootTest //스프링 테스트
 @Transactional
+//@Rollback(value = false)
 class MemberServiceIntegrationTest {
 
     @Autowired MemberService memberService;
+    //테스트이기때문에  필드에다가 @Autowired
     @Autowired MemberRepository memberRepository;
 
     @Test
