@@ -18,12 +18,11 @@ public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
     String product;
     String order2;
     String orderList;
     
-    public ProductDto toDto(){
+    public ProductDto toDto() {
         return ProductDto.builder()
                 .id(id)
                 .product(product)

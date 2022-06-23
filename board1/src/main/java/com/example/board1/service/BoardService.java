@@ -2,7 +2,7 @@ package com.example.board1.service;
 
 
 import com.example.board1.domain.Board;
-import com.example.board1.dto.BoardDto;
+import com.example.board1.controller.dto.BoardDto;
 import com.example.board1.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,12 +15,13 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    public void createBoard(BoardDto boardDto) {
-        boardRepository.save(boardDto);
+    public String createBoard(BoardDto boardDto) {
+        boardRepository.save(boardDto.toEntity());
+        return "저장";
     }
 
     public Optional<Board> getBoard(Long id) {
-       Board board = boardRepository.findById(id);
+       return Board board = boardRepository.findById(id);
     }
 
 }

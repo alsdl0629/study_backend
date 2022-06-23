@@ -1,4 +1,4 @@
-package com.example.board1.dto;
+package com.example.board1.controller.dto;
 
 import com.example.board1.domain.Board;
 import lombok.AllArgsConstructor;
