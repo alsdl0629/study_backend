@@ -15,13 +15,14 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    public String createBoard(BoardDto boardDto) {
+    public Long createBoard(BoardDto boardDto) {
         boardRepository.save(boardDto.toEntity());
-        return "저장";
+        return boardDto.getId();
     }
 
     public Optional<Board> getBoard(Long id) {
-       return Board board = boardRepository.findById(id);
+       Optional<Board> board = boardRepository.findById(id);
+       return board;
     }
 
 }
