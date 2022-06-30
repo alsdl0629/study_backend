@@ -24,7 +24,7 @@ public class ProductController {
 
     @DeleteMapping("/product/{id}")
     public String noProduct(@PathVariable Long id) {
-        return "삭제 : " + id;
+        return "삭제되었습니다 : " + id;
     }
 
 }
