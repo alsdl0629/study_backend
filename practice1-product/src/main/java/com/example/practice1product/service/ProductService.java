@@ -1,11 +1,14 @@
 package com.example.practice1product.service;
 
+import com.example.practice1product.dto.MessageResponse;
 import com.example.practice1product.dto.ProductDto;
 import com.example.practice1product.entity.Product;
 import com.example.practice1product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,20 +17,39 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public ProductDto save(ProductDto productDto) {
-        Product product = productDto.toEntity();
+    public MessageResponse save(ProductDto productDto) {
+        Product product = Product.builder()
+                .id(productDto.getId())
+                .productName(productDto.getProductName())
+                .productStock(productDto.getProductStock())
+                .build();
         productRepository.save(product);
-        return product.toDto();
+        return MessageResponse.builder()
+                .message(productDto.getProductName() + " :: 저장 완료.")
+                .build();
     }
 
     public ProductDto getProduct(Long id) {
         Optional<Product> product = productRepository.findById(id);
-        ProductDto productDto = product.get().toDto();
-        return productDto;
+        return ProductDto.builder()
+                .id(product.getId())
+                .productName(product.getProductName())
+                .productStock(product.getProductStock())
+                .build();
     }
 
-    public Long deleteProduct(Long id) {
+//    public ProductDto getProduct(Long id) {
+//        Product product = productRepository.findById(id)
+//                .orElseThrow();
+//        return ProductDto.builder()
+//                .id(product.get)
+//                .build()
+//    }
+
+    public MessageResponse deleteProduct(Long id) {
         productRepository.deleteById(id);
-        return id;
+        return MessageResponse.builder()
+                .message("삭제 : " + id)
+                .build();
     }
 }

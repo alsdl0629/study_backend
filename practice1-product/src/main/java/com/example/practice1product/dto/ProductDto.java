@@ -13,11 +13,4 @@ public class ProductDto {
     private String productName;
     private Long productStock;
 
-    public Product toEntity() {
-        return Product.builder()
-                .id(id)
-                .productName(productName)
-                .productStock(productStock)
-                .build();
-    }
 }

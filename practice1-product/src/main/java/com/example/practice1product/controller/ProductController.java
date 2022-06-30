@@ -1,5 +1,6 @@
 package com.example.practice1product.controller;
 
+import com.example.practice1product.dto.MessageResponse;
 import com.example.practice1product.dto.ProductDto;
 import com.example.practice1product.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/product")
-    public ProductDto saveProduct(@RequestBody ProductDto productDto) {
+    public MessageResponse saveProduct(@RequestBody ProductDto productDto) {
         return productService.save(productDto);
     }
 
@@ -23,8 +24,13 @@ public class ProductController {
 
 
     @DeleteMapping("/product/{id}")
-    public String noProduct(@PathVariable Long id) {
-        return "삭제되었습니다 : " + id;
+    public MessageResponse noProduct(@PathVariable Long id) {
+        return productService.deleteProduct(id);
+    }
+/*
+    @PutMapping("/product/{id}")
+    public ProductDto updateProduct(@PathVariable Long id) {
     }
 
+ */
 }
