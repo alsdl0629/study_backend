@@ -7,8 +7,6 @@ import com.example.practice1product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,9 +30,9 @@ public class ProductService {
     public ProductDto getProduct(Long id) {
         Optional<Product> product = productRepository.findById(id);
         return ProductDto.builder()
-                .id(product.getId())
-                .productName(product.getProductName())
-                .productStock(product.getProductStock())
+                .id(product.get().getId())
+                .productName(product.get().getProductName())
+                .productStock(product.get().getProductStock())
                 .build();
     }
 
