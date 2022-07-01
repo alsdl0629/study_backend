@@ -24,13 +24,14 @@ public class ProductController {
 
 
     @DeleteMapping("/product/{id}")
-    public MessageResponse noProduct(@PathVariable Long id) {
+    public MessageResponse deleteProduct(@PathVariable Long id) {
         return productService.deleteProduct(id);
     }
-/*
+
     @PutMapping("/product/{id}")
-    public ProductDto updateProduct(@PathVariable Long id) {
+    public MessageResponse updateProduct(@PathVariable Long id,@RequestBody ProductDto productDto) {
+        return productService.updateProduct(id, productDto);
     }
 
- */
+
 }

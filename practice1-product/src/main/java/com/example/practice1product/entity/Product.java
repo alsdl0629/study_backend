@@ -2,10 +2,7 @@ package com.example.practice1product.entity;
 
 import com.example.practice1product.dto.ProductDto;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

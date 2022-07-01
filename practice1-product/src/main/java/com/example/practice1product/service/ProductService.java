@@ -50,4 +50,17 @@ public class ProductService {
                 .message("삭제 : " + id)
                 .build();
     }
+
+    public MessageResponse updateProduct(Long id, ProductDto productDto) {
+        Product product = Product.builder()
+                .id(productDto.getId())
+                .productName(productDto.getProductName())
+                .productStock(productDto.getProductStock())
+                .build();
+        productRepository.save(product);
+
+        return MessageResponse.builder()
+                .message(product.getProductName() + "수정 완료")
+                .build();
+    }
 }
