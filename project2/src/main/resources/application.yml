@@ -5,6 +5,6 @@ spring:
     database: mysql
   datasource:
     username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:rkdalsl060629}
+    password: ${DB_PASSWORD:mini}
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${DB_URL:localhost}:3306/${DB_NAME:}?characterEncoding=UTF-8&serverTimezone=UTC
